@@ -1,0 +1,92 @@
+from selenium import webdriver
+
+from selenium.webdriver.common.by import By
+
+import time
+ 
+# Start browser
+
+driver = webdriver.Chrome()
+ 
+# Open login page
+
+driver.get("http://localhost/login.php")   # or file:///path/login.html
+
+driver.maximize_window()
+ 
+# Locate input fields
+
+username = driver.find_element(By.NAME, "username")
+
+password = driver.find_element(By.NAME, "password")
+ 
+# Enter valid credentials
+
+username.send_keys("manideep")
+
+password.send_keys("password123")
+ 
+# Click login
+
+driver.find_element(By.TAG_NAME, "button").click()
+ 
+time.sleep(2)
+ 
+print("✅ Valid login test executed")
+ 
+driver.quit()
+
+from selenium import webdriver
+
+from selenium.webdriver.common.by import By
+
+import time
+ 
+driver = webdriver.Chrome()
+
+driver.get("http://localhost/login.php")
+
+driver.maximize_window()
+ 
+# Leave username empty
+
+password = driver.find_element(By.NAME, "password")
+
+password.send_keys("password123")
+ 
+driver.find_element(By.TAG_NAME, "button").click()
+
+time.sleep(2)
+ 
+print("✅ Empty username validation tested")
+ 
+driver.quit()
+
+from selenium import webdriver
+
+from selenium.webdriver.common.by import By
+
+import time
+ 
+driver = webdriver.Chrome()
+
+driver.get("http://localhost/login.php")
+
+driver.maximize_window()
+ 
+username = driver.find_element(By.NAME, "username")
+
+password = driver.find_element(By.NAME, "password")
+ 
+username.send_keys("manideep")
+
+password.send_keys("123")   # Invalid password
+ 
+driver.find_element(By.TAG_NAME, "button").click()
+
+time.sleep(2)
+ 
+print("✅ Short password validation tested")
+ 
+driver.quit()
+ 
